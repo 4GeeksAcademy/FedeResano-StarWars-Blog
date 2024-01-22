@@ -1,22 +1,20 @@
-import React, { useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import { Context } from "../store/appContext";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Character = () => {
+const CharacterCard = () => {
     const { store, actions } = useContext(Context);
-
-    let { uid } = useParams();
 
     return (
         <div className="d-flex">
-            {store.characters.map((element, index) => {
+            {store.characters.map((element) => {
                 return (
-                    <div className="container" key={element.uid}>
-                        <div className="card">
+                    <div className="container" >
+                        <div className="card" key={element.uid}>
                             <img src={`https://starwars-visualguide.com/assets/img/characters/${element.uid}.jpg`} className="card-img-top" />
                             <div className="card-body">
                                 <h5 className="card-title"> {element.name} </h5>
-                                <p>Gender: {element.uid} </p>
+                                <p>Gender: {element.gender} </p>
                                 <p>Hair color: {element.hair_color} </p>
                                 <p>Eye-color: {element.eye_color} </p>
                                 <p className="card-text"> {element.description} </p>
@@ -34,4 +32,4 @@ const Character = () => {
     );
 }
 
-export default Character;
+export default CharacterCard;

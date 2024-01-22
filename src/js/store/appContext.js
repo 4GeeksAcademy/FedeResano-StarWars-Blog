@@ -18,18 +18,9 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
-			state.actions.loadCharacterData();
 			state.actions.loadCharacterList();
-			state.actions.loadFilmData();
-			state.actions.loadFilmsList();
-			state.actions.loadPlanetData();
 			state.actions.loadPlanetList();
-			state.actions.loadSpeciesData();
-			state.actions.loadSpeciesList();
-			state.actions.loadVehicleData();
 			state.actions.loadVehiclesList();
-			state.actions.loadStarshipData();
-			state.actions.loadStarshipsList();
 		}, []);
 
 		return (
