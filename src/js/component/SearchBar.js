@@ -1,0 +1,65 @@
+import React, { useState } from 'react'
+
+
+const SearchBar = () => {
+
+    const [searchInput, setSearchInput] = useState("");
+
+    const characterNames = store.characters;
+    const filmNames = store.films;
+    const planetsNames = store.planets;
+    const speciesNames = store.species;
+    const vehiclesNames = store.vehicles;
+    const starshipNames = store.starships;
+
+    const allNames = [
+        ...characterNames,
+        ...filmNames,
+        ...planetsNames,
+        ...speciesNames,
+        ...vehiclesNames,
+        ...starshipNames
+    ];
+
+
+    const inputChange = (e) => {
+        e.preventDefault();
+        setSearchInput(e.target.value);
+    }
+
+    const filteredNames = allNames.filter((item) => item.name.includes(searchInput));
+
+    return (
+        <div>
+            <input
+                type="text"
+                placeholder="Search here"
+                onChange={inputChange}
+                value={searchInput} />
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Character</th>
+                        <th>Film</th>
+                        <th>Planet</th>
+                        <th>Species</th>
+                        <th>Vehicles</th>
+                        <th>Starships</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {filteredNames.map((item, index) => (
+                        <tr key={index}>
+                            <td>{item.name}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+
+        </div>
+    );
+
+}
+
+export default SearchBar;
