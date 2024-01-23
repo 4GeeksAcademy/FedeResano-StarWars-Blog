@@ -2,16 +2,16 @@ import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
-const CharacterCard = () => {
+const SpeciesCard = () => {
     const { store, actions } = useContext(Context);
 
     return (
         <div className="d-flex">
-            {store.characters.map((element) => {
+            {store.species.map((element) => {
                 return (
                     <div className="container" >
                         <div className="card" key={element.uid}>
-                            <img src={`https://starwars-visualguide.com/assets/img/characters/${element.uid}.jpg`} className="card-img-top" />
+                            <img src={`https://starwars-visualguide.com/assets/img/species/${element.uid}.jpg`} className="card-img-top" />
                             <div className="card-body">
                                 <h5 className="card-title"> {element.properties.name} </h5>
                                 <p>Gender: {element.properties.gender} </p>
@@ -21,8 +21,8 @@ const CharacterCard = () => {
                             </div>
 
                             <div className="d-flex justify-content-center">
-                                <Link to={`/characters/${element.uid}`}> Learn more</Link>
-                                <button className="btn btn-warning" onClick={() => actions.addFavorite(`/characters/${element.uid}`, element.properties.name)}>Add to favorites</button>
+                                <Link to={`/species/${element.uid}`}> Learn more</Link>
+                                <button className="btn btn-warning" onClick={() => actions.addFavorite(`/species/${element.uid}`, element.properties.name)}>Add to favorites</button>
                             </div>
                         </div>
                     </div>
@@ -32,4 +32,4 @@ const CharacterCard = () => {
     );
 }
 
-export default CharacterCard;
+export default SpeciesCard;

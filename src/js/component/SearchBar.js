@@ -33,11 +33,12 @@ const SearchBar = () => {
         <div>
             <input
                 type="text"
+                className="bg-dark"
                 placeholder="Search here"
                 onChange={inputChange}
                 value={searchInput} />
 
-            <table>
+            <table className="bg-dark">
                 <thead>
                     <tr>
                         <th>Character</th>
