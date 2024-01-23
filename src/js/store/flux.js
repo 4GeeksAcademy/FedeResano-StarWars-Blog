@@ -43,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const resp = await fetch(`https://www.swapi.tech/api/people/${characterId}/`);
 					const data = await resp.json();
 
-					setStore({ characters: data.results })
+					setStore({ characters: data.result})
 				} catch (error) {
 					console.error(error);
 				}
@@ -68,7 +68,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const resp = await fetch(`https://www.swapi.tech/api/films/${filmId}/`);
 					const data = await resp.json();
-					setStore({ films: data.results.properties });
+
+					setStore({ films: data.result});
 				} catch (error) {
 					console.error(error);
 				}
@@ -79,7 +80,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const resp = await fetch("https://www.swapi.tech/api/films");
 					const data = await resp.json();
 
-					const requests = data.results.map((item) => fetch(item.url));
+					const requests = data.result.map((item) => fetch(item.url));
 					const response = await Promise.all(requests);
 					const datas = await Promise.all(response.map((item) => item.json()));
 					setStore({ films: datas });
@@ -94,7 +95,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const resp = await fetch(`https://www.swapi.tech/api/planets/${planetId}/`);
 					const data = await resp.json();
 
-					setStore({ planets: data.results.properties });
+					setStore({ planets: data.result });
 				} catch (error) {
 					console.error(error);
 				}
@@ -119,7 +120,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const resp = await fetch(`https://www.swapi.tech/api/species/${speciesId}/`);
 					const data = await resp.json();
-					setStore({ species: data.results.properties });
+					setStore({ species: data.result });
 				} catch (error) {
 					console.error(error);
 				}
@@ -144,7 +145,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const resp = await fetch(`https://www.swapi.tech/api/vehicles/${vehiclesId}/`);
 					const data = await resp.json();
-					setStore({ vehicles: data.results.properties });
+					setStore({ vehicles: data.result });
 				} catch (error) {
 					console.error(error);
 				}
@@ -169,7 +170,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 				try {
 					const resp = await fetch(`https://www.swapi.tech/api/starships/${starshipId}/`);
 					const data = await resp.json();
-					setStore({ starships: data.results.properties });
+					setStore({ starships: data.result });
 				} catch (error) {
 					console.error(error);
 				}
