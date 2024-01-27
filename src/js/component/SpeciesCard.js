@@ -14,10 +14,9 @@ const SpeciesCard = () => {
                             <img src={`https://starwars-visualguide.com/assets/img/species/${element.uid}.jpg`} className="card-img-top" />
                             <div className="card-body">
                                 <h5 className="card-title"> {element.properties.name} </h5>
-                                <p>Gender: {element.properties.gender} </p>
-                                <p>Hair color: {element.properties.hair_color} </p>
-                                <p>Eye-color: {element.properties.eye_color} </p>
-                                <p className="card-text"> {element.properties.description} </p>
+                                <p>Homeworld: {element.properties.homeworld}</p>
+                                <p>Language: {element.properties.language}</p>
+                                <p>Classification: {element.properties.classification}</p>
                             </div>
 
                             <div className="d-flex justify-content-center">

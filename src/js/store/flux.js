@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			characters: [
+			people: [
 				{
 
 				},
@@ -38,12 +38,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 		},
 		actions: {
-			loadCharacterData: async (characterId) => {
+			loadCharacterData: async (peopleId) => {
 				try {
-					const resp = await fetch(`https://www.swapi.tech/api/people/${characterId}/`);
+					const resp = await fetch(`https://www.swapi.tech/api/people/${peopleId}/`);
 					const data = await resp.json();
 
-					setStore({ characters: data.result})
+					setStore({ people: data.result})
 				} catch (error) {
 					console.error(error);
 				}
@@ -57,7 +57,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const requests = data.results.map((item) => fetch(item.url));
 					const response = await Promise.all(requests);
 					const datas = await Promise.all(response.map((item) => item.json()));
-					setStore({ characters: datas });
+					setStore({ people: datas });
 
 				} catch (error) {
 					console.error(error);

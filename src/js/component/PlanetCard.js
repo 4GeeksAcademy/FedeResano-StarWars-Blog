@@ -17,7 +17,6 @@ const PlanetCard = () => {
                                 <p>Climate: {element.properties.climate} </p>
                                 <p>Terrain: {element.properties.terrain} </p>
                                 <p>Population: {element.properties.population} </p>
-                                <p className="card-text"> {element.properties.description} </p>
                             </div>
 
                             <div className="d-flex justify-content-center">

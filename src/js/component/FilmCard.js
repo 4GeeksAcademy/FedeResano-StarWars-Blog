@@ -17,7 +17,6 @@ const FilmCard = () => {
                                 <p>Directed by: {element.properties.director} </p>
                                 <p>Produced by: {element.properties.producer} </p>
                                 <p>Release Date: {element.properties.release_date} </p>
-                                <p className="card-text"> {element.properties.description} </p>
                             </div>
 
                             <div className="d-flex justify-content-center">

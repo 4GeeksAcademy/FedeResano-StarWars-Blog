@@ -18,17 +18,17 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
-						<Route path="/characterslist" element={<CharacterList />} />
-						<Route path="/character/:theid" element={<Character />} />
-						<Route path="/filmslist" element={<FilmsList />} />
-						<Route path="/film/:theid" element={<Film />} />
-						<Route path="/planetslist" element={<PlanetsList />} />
-						<Route path="/planet/:theid" element={<Planet />} />
-						<Route path="/specieslist" element={<SpeciesList />} />
+						<Route path="/people" element={<CharacterList />} />
+						<Route path="/people/:theid" element={<Character />} />
+						<Route path="/films" element={<FilmsList />} />
+						<Route path="/films/:theid" element={<Film />} />
+						<Route path="/planets" element={<PlanetsList />} />
+						<Route path="/planets/:theid" element={<Planet />} />
+						<Route path="/species" element={<SpeciesList />} />
 						<Route path="/species/:theid" element={<Species />} />
-						<Route path="/vehicleslist" element={<VehiclesList />} />
+						<Route path="/vehicles" element={<VehiclesList />} />
 						<Route path="/vehicles/:theid" element={<Vehicle />} />
-						<Route path="/starshipslist" element={<StarshipsList />} />
+						<Route path="/starships" element={<StarshipsList />} />
 						<Route path="/starships/:theid" element={<Starship />} />
 						<Route path="/favorites" element={<Favorites />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
