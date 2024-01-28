@@ -8,6 +8,11 @@ export const Navbar = () => {
 				<button className="btn btn-primary">Home</button>
 			</Link>
 			<div className="ml-auto">
+				<Link to="/browse">
+					<button className="btn btn-primary">Browse</button>
+				</Link>
+			</div>
+			<div className="ml-auto">
 				<Link to="/characterlist">
 					<button className="btn btn-primary">Characters</button>
 				</Link>

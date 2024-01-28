@@ -18,6 +18,7 @@ const Layout = () => {
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
+						<Route path="/browse" element={<Browse />} />
 						<Route path="/people" element={<CharacterList />} />
 						<Route path="/people/:theid" element={<Character />} />
 						<Route path="/films" element={<FilmsList />} />
