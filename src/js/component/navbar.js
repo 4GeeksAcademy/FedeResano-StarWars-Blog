@@ -13,32 +13,32 @@ export const Navbar = () => {
 				</Link>
 			</div>
 			<div className="ml-auto">
-				<Link to="/characterlist">
+				<Link to="/characters">
 					<button className="btn btn-primary">Characters</button>
 				</Link>
 			</div>
 			<div className="ml-auto">
-				<Link to="/filmslist">
+				<Link to="/films">
 					<button className="btn btn-primary">Films</button>
 				</Link>
 			</div>
 			<div className="ml-auto">
-				<Link to="/planetslist">
+				<Link to="/planets">
 					<button className="btn btn-primary">Planets</button>
 				</Link>
 			</div>
 			<div className="ml-auto">
-				<Link to="/specieslist">
+				<Link to="/species">
 					<button className="btn btn-primary">Species</button>
 				</Link>
 			</div>
 			<div className="ml-auto">
-				<Link to="/vehicleslist">
+				<Link to="/vehicles">
 					<button className="btn btn-primary">Vehicles</button>
 				</Link>
 			</div>
 			<div className="ml-auto">
-				<Link to="/starshipslist">
+				<Link to="/starships">
 					<button className="btn btn-primary">Starships</button>
 				</Link>
 			</div>
