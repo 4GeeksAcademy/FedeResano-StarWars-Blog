@@ -2,7 +2,6 @@ import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
-
 const Character = ({ character }) => {
 
     const links = (items, category) => {
