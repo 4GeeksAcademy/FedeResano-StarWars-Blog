@@ -43,7 +43,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const resp = await fetch(`https://www.swapi.tech/api/people/${peopleId}/`);
 					const data = await resp.json();
 
-					setStore({ people: data.result})
+					setStore({ people: data.result })
 				} catch (error) {
 					console.error(error);
 				}
@@ -69,7 +69,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const resp = await fetch(`https://www.swapi.tech/api/films/${filmId}/`);
 					const data = await resp.json();
 
-					setStore({ films: data.result});
+					setStore({ films: data.result });
 				} catch (error) {
 					console.error(error);
 				}
