@@ -42,6 +42,11 @@ export const Navbar = () => {
 					<button className="btn btn-primary">Starships</button>
 				</Link>
 			</div>
+			<div className="ml-auto">
+				<Link to="/favorites">
+					<button className="btn btn-primary">Favorites</button>
+				</Link>
+			</div>
 		</nav>
 	);
 };

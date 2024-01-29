@@ -7,9 +7,9 @@ const SpeciesCard = () => {
 
     return (
         <div className="d-flex">
-            {store.species.map((element) => {
-                return (
-                    <div className="container" >
+            <div className="scrolling-container" >
+                {store.species.map((element) => {
+                    return (
                         <div className="card" key={element.uid}>
                             <img src={`https://starwars-visualguide.com/assets/img/species/${element.uid}.jpg`} className="card-img-top" />
                             <div className="card-body">
@@ -19,14 +19,14 @@ const SpeciesCard = () => {
                                 <p>Classification: {element.properties.classification}</p>
                             </div>
 
-                            <div className="d-flex justify-content-center">
                                 <Link to={`/species/${element.uid}`}> Learn more</Link>
+                            <div className="d-flex justify-content-center">
                                 <button className="btn btn-warning" onClick={() => actions.addFavorite(`/species/${element.uid}`, element.properties.name)}>Add to favorites</button>
                             </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
     );
 }

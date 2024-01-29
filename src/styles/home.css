@@ -1,0 +1,9 @@
+.scrolling-container {
+    display: flex;
+    overflow-x: auto; 
+    white-space: nowrap; 
+}
+
+.card {
+    margin-right: 10px; 
+}

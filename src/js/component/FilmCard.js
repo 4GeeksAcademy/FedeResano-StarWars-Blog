@@ -7,9 +7,9 @@ const FilmCard = () => {
 
     return (
         <div className="d-flex">
-            {store.films.map((element) => {
-                return (
-                    <div className="container" >
+            <div className="scrolling-container" >
+                {store.films.map((element) => {
+                    return (
                         <div className="card" key={element.uid}>
                             <img src={`https://starwars-visualguide.com/assets/img/films/${element.uid}.jpg`} className="card-img-top" />
                             <div className="card-body">
@@ -24,9 +24,9 @@ const FilmCard = () => {
                                 <button className="btn btn-warning" onClick={() => actions.addFavorite(`/films/${element.uid}`, element.properties.title)}>Add to favorites</button>
                             </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
     );
 }

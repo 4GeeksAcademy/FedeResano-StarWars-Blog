@@ -7,9 +7,9 @@ const VehicleCard = () => {
 
     return (
         <div className="d-flex">
-            {store.vehicles.map((element) => {
-                return (
-                    <div className="container">
+            <div className="scrolling-container">
+                {store.vehicles.map((element) => {
+                    return (
                         <div className="card" key={element.uid}>
                             <img src={`https://starwars-visualguide.com/assets/img/vehicles/${element.uid}.jpg`} className="card-img-top" />
                             <div className="card-body">
@@ -24,9 +24,9 @@ const VehicleCard = () => {
                                 <button className="btn btn-warning" onClick={() => actions.addFavorite(`/vehicles/${element.uid}`, element.properties.name)}>Add to favorites</button>
                             </div>
                         </div>
-                    </div>
-                );
-            })}
+                    );
+                })}
+            </div>
         </div>
     );
 
