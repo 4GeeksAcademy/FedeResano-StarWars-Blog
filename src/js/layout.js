@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./views/home";
+import { Home, Browse, Character, Film, Planet, Species, Starship, Vehicle } from "./views/home";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -31,7 +31,6 @@ const Layout = () => {
 						<Route path="/vehicles/:theid" element={<Vehicle />} />
 						<Route path="/starships" element={<StarshipsList />} />
 						<Route path="/starships/:theid" element={<Starship />} />
-						<Route path="/favorites" element={<Favorites />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
 					<Footer />

@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
-const PersonCard = () => {
+const CharacterCard = () => {
     const { store, actions } = useContext(Context);
 
     return (
@@ -32,4 +32,4 @@ const PersonCard = () => {
     );
 }
 
-export default PersonCard;
+export default CharacterCard;
