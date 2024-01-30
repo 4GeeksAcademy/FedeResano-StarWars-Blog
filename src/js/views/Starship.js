@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
-const Starship = ({ starship }) => {
+export const Starship = ({ starship }) => {
 
     const links = (items, category) => {
         if (!items || items.length === 0) {
@@ -41,5 +41,3 @@ const Starship = ({ starship }) => {
     </div>
 
 }
-
-export default Starship;

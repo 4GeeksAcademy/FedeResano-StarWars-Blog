@@ -6,7 +6,8 @@ import { Home, Browse, Character, Film, Planet, Species, Starship, Vehicle, Char
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import {Footer} from "./component/footer";
+import {SearchBar} from "./component/SearchBar";
 
 const Layout = () => {
 	const basename = process.env.BASENAME || "";

@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
-const FilmsList = () => {
+export const FilmsList = () => {
     const { store, actions } = useContext(Context);
 
     return (
@@ -27,5 +27,3 @@ const FilmsList = () => {
         </div>
     );
 }
-
-export default FilmsList;

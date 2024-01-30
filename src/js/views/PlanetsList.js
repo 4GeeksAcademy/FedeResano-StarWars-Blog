@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
-const PlanetsList = () => {
+export const PlanetsList = () => {
     const { store, actions } = useContext(Context);
 
     return (
@@ -27,5 +27,3 @@ const PlanetsList = () => {
         </div>
     );
 }
-
-export default PlanetsList;

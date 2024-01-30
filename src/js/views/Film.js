@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
-const Film = ({ film }) => {
+export const Film = ({ film }) => {
 
     const links = (items, category) => {
         if (!items || items.length === 0) {
@@ -35,5 +35,3 @@ const Film = ({ film }) => {
     </div>
 
 }
-
-export default Film;

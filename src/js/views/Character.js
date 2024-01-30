@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
-const Character = ({ character }) => {
+export const Character = ({ character }) => {
 
     const links = (items, category) => {
         if (!items || items.length === 0) {
@@ -42,5 +42,3 @@ const Character = ({ character }) => {
 
     </div>
 }
-
-export default Character;

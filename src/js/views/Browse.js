@@ -1,7 +1,7 @@
 import React from "react";
 import "../../styles/home.css";
 
-const Browse = () => {
+export const Browse = () => {
 
     return (
         <div>
@@ -32,5 +32,3 @@ const Browse = () => {
         </div>
     )
 }
-
-export default Browse;
