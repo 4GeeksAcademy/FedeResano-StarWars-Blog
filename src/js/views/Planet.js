@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
-export const Planet = ({ planet }) => {
+const Planet = ({ planet }) => {
 
     const links = (items, category) => {
         if (!items || items.length === 0) {
@@ -39,3 +39,5 @@ export const Planet = ({ planet }) => {
     </div>
 
 }
+
+export default Planet;

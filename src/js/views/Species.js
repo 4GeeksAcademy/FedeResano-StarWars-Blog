@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
-export const Species = ({ species }) => {
+const Species = ({ species }) => {
 
     const links = (items, category) => {
         if (!items || items.length === 0) {
@@ -41,3 +41,5 @@ export const Species = ({ species }) => {
 
     </div>
 }
+
+export default Species;

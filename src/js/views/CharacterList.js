@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
-export const CharacterList = () => {
+const CharacterList = () => {
     const { store, actions } = useContext(Context);
 
     return (
@@ -27,3 +27,5 @@ export const CharacterList = () => {
         </div>
     );
 }
+
+export default CharacterList;

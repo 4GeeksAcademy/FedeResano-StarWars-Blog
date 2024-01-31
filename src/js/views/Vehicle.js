@@ -2,7 +2,7 @@ import React from "react";
 import "../../styles/home.css";
 import { Link } from "react-router-dom";
 
-export const Vehicle = ({ vehicle }) => {
+const Vehicle = ({ vehicle }) => {
 
     const links = (items, category) => {
         if (!items || items.length === 0) {
@@ -39,3 +39,5 @@ export const Vehicle = ({ vehicle }) => {
 
     </div>
 }
+
+export default Vehicle;

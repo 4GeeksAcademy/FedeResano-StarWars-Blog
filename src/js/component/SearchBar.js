@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-
+import React, { useState, useContext } from 'react';
+import { Context } from "../store/appContext";
 
 const SearchBar = () => {
 
+    const { store } = useContext(Context);
     const [searchInput, setSearchInput] = useState("");
 
     const characterNames = store.characters;
@@ -13,12 +14,12 @@ const SearchBar = () => {
     const starshipNames = store.starships;
 
     const allNames = [
-        ...characterNames,
-        ...filmNames,
-        ...planetsNames,
-        ...speciesNames,
-        ...vehiclesNames,
-        ...starshipNames
+        ...(characterNames || []),
+        ...(filmNames || []),
+        ...(planetsNames || []),
+        ...(speciesNames || []),
+        ...(vehiclesNames || []),
+        ...(starshipNames || [])
     ];
 
 
@@ -27,7 +28,7 @@ const SearchBar = () => {
         setSearchInput(e.target.value);
     }
 
-    const filteredNames = allNames.filter((item) => item.name.includes(searchInput));
+    const filteredNames = allNames.filter((item) => item && item.name && item.name.includes(searchInput));
 
     return (
         <div>
