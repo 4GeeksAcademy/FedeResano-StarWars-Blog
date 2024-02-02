@@ -1,3 +1,13 @@
-/* 
-    General Styles
-*/
+body {
+    background-color: black;
+    color: yellow;
+}
+
+input {
+    color: yellow;
+}
+
+::placeholder{
+    color: yellow;
+}
+
