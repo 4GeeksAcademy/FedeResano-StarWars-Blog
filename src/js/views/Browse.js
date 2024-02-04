@@ -1,5 +1,12 @@
 import React from "react";
 import "../../styles/home.css";
+import CharacterCard from "../component/CharacterCard"
+import FilmCard from "../component/FilmCard"
+import PlanetCard from "../component/PlanetCard"
+import SpeciesCard from "../component/SpeciesCard"
+import VehicleCard from "../component/VehicleCard"
+import StarshipCard from "../component/StarshipCard"
+
 
 const Browse = () => {
 

@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import "../../styles/home.css";
 
 const VehicleCard = () => {
     const { store, actions } = useContext(Context);
@@ -10,18 +11,18 @@ const VehicleCard = () => {
             <div className="scrolling-container">
                 {store.vehicles.map((element) => {
                     return (
-                        <div className="card" key={element.uid}>
+                        <div className="card" key={element.url}>
                             <img src={`https://starwars-visualguide.com/assets/img/vehicles/${element.uid}.jpg`} className="card-img-top" />
                             <div className="card-body">
-                                <h5 className="card-title">{element.properties.name}</h5>
-                                <p>Manufacturer: {element.properties.manufacturer}</p>
-                                <p>Model: {element.properties.model}</p>
-                                <p>Crew: {element.properties.crew}</p>
+                                <h5 className="card-title">{element.name}</h5>
+                                <p>Manufacturer: {element.manufacturer}</p>
+                                <p>Model: {element.model}</p>
+                                <p>Crew: {element.crew}</p>
                             </div>
 
                             <div className="d-flex justify-content-center">
                                 <Link to={`/vehicles/${element.uid}`}> Learn more</Link>
-                                <button className="btn btn-warning" onClick={() => actions.addFavorite(`/vehicles/${element.uid}`, element.properties.name)}>Add to favorites</button>
+                                <button className="btn btn-warning" onClick={() => actions.addFavorite(`/vehicles/${element.uid}`, element.name)}>Add to favorites</button>
                             </div>
                         </div>
                     );

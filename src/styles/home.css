@@ -1,9 +1,10 @@
 .scrolling-container {
-    display: flex;
     overflow-x: auto; 
     white-space: nowrap; 
 }
 
 .card {
     margin-right: 10px; 
+    background-color: grey;
+    text-decoration-color: yellow;
 }

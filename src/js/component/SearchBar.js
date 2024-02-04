@@ -50,8 +50,8 @@ const SearchBar = () => {
 
             {suggestions.length > 0 && (
                 <ul className="autocomplete-dropdown">
-                    {suggestions.map((item, index) => (
-                        <li key={index} onClick={() => selectSuggestions(item)}>
+                    {suggestions.map((item) => (
+                        <li key={item.url} onClick={() => selectSuggestions(item)}>
                             {item.name || item.title}
                         </li>
                     ))}
@@ -60,8 +60,8 @@ const SearchBar = () => {
 
             <table className="bg-dark">
                 <tbody>
-                    {allNames.map((item, index) => (
-                        <tr key={index}>
+                    {allNames.map((item) => (
+                        <tr key={item.url}>
                             <td>{item.name || item.title}</td>
                         </tr>
                     ))}
