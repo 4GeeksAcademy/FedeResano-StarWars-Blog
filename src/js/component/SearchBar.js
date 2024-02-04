@@ -28,13 +28,13 @@ const SearchBar = () => {
         const input = e.target.value;
         setSearchInput(input)
 
-        const filteredSuggestions = allNames.filter((item) => item && item.results.name && item.results.name.toLowerCase().includes(input.toLowerCase() || item && item.results.title && item.results.title.toLowerCase().includes(input.toLowerCase())));
+        const filteredSuggestions = allNames.filter((item) => item && item.results.name && item.results.name.toLowerCase().includes(input.toLowerCase() || item && item.result.properties.title && item.result.properties.title.toLowerCase().includes(input.toLowerCase())));
         setSuggestions(filteredSuggestions);
 
     };
 
-    const selectSuggestions = (selectedName) => {
-        setSearchInput(selectedName);
+    const selectSuggestions = (selectedItem) => {
+        setSearchInput(selectedItem.name || selectedItem.title);
         setSuggestions([]);
     }
 
@@ -51,8 +51,8 @@ const SearchBar = () => {
             {suggestions.length > 0 && (
                 <ul className="autocomplete-dropdown">
                     {suggestions.map((item, index) => (
-                        <li key={index} onClick={() => selectSuggestions(item.results.name)}>
-                            {item.results.name}
+                        <li key={index} onClick={() => selectSuggestions(item)}>
+                            {item.name || item.title}
                         </li>
                     ))}
                 </ul>
@@ -60,9 +60,9 @@ const SearchBar = () => {
 
             <table className="bg-dark">
                 <tbody>
-                    {filteredNames.map((item, index) => (
+                    {allNames.map((item, index) => (
                         <tr key={index}>
-                            <td>{item.results.name}</td>
+                            <td>{item.name || item.title}</td>
                         </tr>
                     ))}
                 </tbody>
