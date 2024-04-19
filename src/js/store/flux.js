@@ -38,9 +38,35 @@ const getState = ({ getStore, getActions, setStore }) => {
 			],
 		},
 		actions: {
+			apiFetch: async (endpoint, method = "GET", body = null) => {
+				try {
+					let params = {
+						method,
+						headers: {
+							"Access-Control-Allow-Origin": "*"
+						}
+					};
+
+					if (body != null) {
+						params.body = JSON.stringify(body)
+						params.headers["Content-Type"] = "application/json"
+					}
+
+					let resp = await fetch("https://www.swapi.tech/api" + endpoint, params)
+
+					if (!resp.ok) {
+						console.error(resp.statusText);
+						return { error: resp.statusText }
+					}
+
+					return resp
+				} catch (error) {
+					console.error("Error:", error)
+				}
+			},
 			loadCharacterData: async (peopleId) => {
 				try {
-					const resp = await fetch(`https://www.swapi.tech/api/people/${peopleId}/`);
+					const resp = await getActions().apiFetch(`/people/${peopleId}`, "GET")
 					const data = await resp.json();
 
 					setStore({ people: data.result })
@@ -51,14 +77,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadCharacterList: async () => {
 				try {
-					const resp = await fetch("https://www.swapi.tech/api/people");
+					const resp = await getActions().apiFetch(`/people`, "GET")
 					const data = await resp.json();
 
 					const requests = data.results.map((item) => fetch(item.url));
 					const response = await Promise.all(requests);
 					const datas = await Promise.all(response.map((item) => item.json()));
-					setStore({ people: datas });
 
+					setStore({ people: datas });
 				} catch (error) {
 					console.error(error);
 				}
@@ -66,7 +92,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadFilmData: async (filmId) => {
 				try {
-					const resp = await fetch(`https://www.swapi.tech/api/films/${filmId}/`);
+					const resp = await getActions().apiFetch(`/films/${filmId}`, "GET")
 					const data = await resp.json();
 
 					setStore({ films: data.result });
@@ -77,14 +103,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadFilmsList: async () => {
 				try {
-					const resp = await fetch("https://www.swapi.tech/api/films");
+					const resp = await getActions().apiFetch(`/films`, "GET")
 					const data = await resp.json();
 
 					const requests = data.result.map((item) => fetch(item.url));
 					const response = await Promise.all(requests);
 					const datas = await Promise.all(response.map((item) => item.json()));
-					setStore({ films: datas });
 
+					setStore({ films: datas });
 				} catch (error) {
 					console.error(error);
 				}
@@ -92,7 +118,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadPlanetData: async (planetId) => {
 				try {
-					const resp = await fetch(`https://www.swapi.tech/api/planets/${planetId}/`);
+					const resp = await getActions().apiFetch(`/planets/${planetId}`, "GET")
 					const data = await resp.json();
 
 					setStore({ planets: data.result });
@@ -103,7 +129,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadPlanetList: async () => {
 				try {
-					const resp = await fetch("https://www.swapi.tech/api/planets");
+					const resp = await getActions().apiFetch(`/planets`, "GET")
 					const data = await resp.json();
 
 					const requests = data.results.map((item) => fetch(item.url));
@@ -118,8 +144,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadSpeciesData: async (speciesId) => {
 				try {
-					const resp = await fetch(`https://www.swapi.tech/api/species/${speciesId}/`);
+					const resp = await getActions().apiFetch(`/species/${speciesId}`, "GET")
 					const data = await resp.json();
+
 					setStore({ species: data.result });
 				} catch (error) {
 					console.error(error);
@@ -128,14 +155,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadSpeciesList: async () => {
 				try {
-					const resp = await fetch("https://www.swapi.tech/api/species");
+					const resp = await getActions().apiFetch(`/species`, "GET")
 					const data = await resp.json();
 
 					const requests = data.results.map((item) => fetch(item.url));
 					const response = await Promise.all(requests);
 					const datas = await Promise.all(response.map((item) => item.json()));
-					setStore({ species: datas });
 
+					setStore({ species: datas });
 				} catch (error) {
 					console.error(error);
 				}
@@ -143,7 +170,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadVehicleData: async (vehiclesId) => {
 				try {
-					const resp = await fetch(`https://www.swapi.tech/api/vehicles/${vehiclesId}/`);
+					const resp = await getActions().apiFetch(`/vehicles/${vehiclesId}`, "GET")
 					const data = await resp.json();
 					setStore({ vehicles: data.result });
 				} catch (error) {
@@ -153,14 +180,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadVehiclesList: async () => {
 				try {
-					const resp = await fetch("https://www.swapi.tech/api/vehicles");
+					const resp = await getActions().apiFetch(`/vehicles`, "GET")
 					const data = await resp.json();
 
 					const requests = data.results.map((item) => fetch(item.url));
 					const response = await Promise.all(requests);
 					const datas = await Promise.all(response.map((item) => item.json()));
-					setStore({ vehicles: datas });
 
+					setStore({ vehicles: datas });
 				} catch (error) {
 					console.error(error);
 				}
@@ -168,8 +195,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadStarshipData: async (starshipId) => {
 				try {
-					const resp = await fetch(`https://www.swapi.tech/api/starships/${starshipId}/`);
+					const resp = await getActions().apiFetch(`/starships/${starshipId}`, "GET")
 					const data = await resp.json();
+
 					setStore({ starships: data.result });
 				} catch (error) {
 					console.error(error);
@@ -178,14 +206,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			loadStarshipsList: async () => {
 				try {
-					const resp = await fetch("https://www.swapi.tech/api/starships");
+					const resp = await getActions().apiFetch(`/starships`, "GET")
 					const data = await resp.json();
 
 					const requests = data.results.map((item) => fetch(item.url));
 					const response = await Promise.all(requests);
 					const datas = await Promise.all(response.map((item) => item.json()));
-					setStore({ starships: datas });
 
+					setStore({ starships: datas });
 				} catch (error) {
 					console.error(error);
 				}
@@ -219,7 +247,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error(error);
 				}
 			}
-
 		}
 	};
 };

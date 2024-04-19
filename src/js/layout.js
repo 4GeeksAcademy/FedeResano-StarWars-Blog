@@ -20,8 +20,6 @@ import Starship from "./views/Starship";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
-
 const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
@@ -47,7 +45,6 @@ const Layout = () => {
 						<Route path="/starships/:id/" element={<Starship />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
 					</Routes>
-					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

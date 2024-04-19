@@ -1,10 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 import "../../styles/home.css";
 
 const FilmsList = () => {
     const { store, actions } = useContext(Context);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                await actions.loadCharacterList();
+                console.log("store.people:", store.people)
+            } catch (error) {
+                console.error("Error fetching characters:", error);
+            }
+        };
+        fetchData();
+    }, []);
 
     return (
         <div className="grid-container">
